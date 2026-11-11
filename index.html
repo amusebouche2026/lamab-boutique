@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LA MAB – Par Mémé Béa</title>
+<style>
+:root{--brown:#482719;--gold:#c69a45;--cream:#fffaf0;--ink:#30231c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,sans-serif}
+header{background:var(--brown);color:white;text-align:center;padding:28px 15px}
+header h1{margin:0;color:#f0cc7d;font-size:32px;letter-spacing:2px}
+header p{margin:8px 0 0}
+nav{background:#fff;position:sticky;top:0;z-index:5;padding:12px;text-align:center;box-shadow:0 2px 8px #0001}
+nav a{color:var(--brown);text-decoration:none;font-weight:bold;margin:0 10px}
+.hero{padding:45px 20px;text-align:center;background:linear-gradient(135deg,#f3e4c5,#fffaf0)}
+.hero h2{font-size:28px;color:var(--brown)}
+.hero p{line-height:1.6}
+.btn{background:var(--brown);color:white;border:0;padding:12px 18px;border-radius:7px;font-weight:bold;cursor:pointer}
+.btn.gold{background:var(--gold);color:#24180e}
+section{padding:28px 16px;max-width:1100px;margin:auto}
+h2.section-title{text-align:center;color:var(--brown)}
+.intro{text-align:center;line-height:1.6}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.product{background:white;border:1px solid #eadfc9;border-radius:12px;padding:17px;box-shadow:0 3px 10px #0000000a}
+.product .pic{height:105px;background:#f6eddd;border-radius:9px;display:grid;place-items:center;font-size:48px}
+.product h3{color:var(--brown);margin-bottom:6px}
+.product p{font-size:14px;line-height:1.5}
+.price{font-weight:bold;color:#9a6a20;font-size:18px}
+.product button{width:100%;margin-top:8px}
+.panel{background:white;border:1px solid #eadfc9;border-radius:12px;padding:18px;margin-top:15px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #d7cbb8;border-radius:7px;margin:6px 0 14px;font:inherit;background:white}
+label{font-weight:bold;font-size:14px}
+.cartline{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #eee;padding:12px 0;align-items:center}
+.qty button{padding:5px 10px;background:#eee;border:0;border-radius:5px}
+.total{font-size:21px;font-weight:bold;color:var(--brown)}
+small{color:#766b60}
+footer{background:var(--brown);color:white;text-align:center;padding:25px;line-height:1.8}
+footer a{color:#f0cc7d}
+.hidden{display:none}
+</style>
+</head>
+<body>
+
+<header>
+<h1>LA MAB</h1>
+<p>Par Mémé Béa</p>
+<p>Maison des Amuses-Bouches</p>
+</header>
+
+<nav>
+<a href="#accueil">Accueil</a>
+<a href="#boutique">Boutique</a>
+<a href="#commande">Commander</a>
+</nav>
+
+<div class="hero" id="accueil">
+<h2>Le plaisir du partage et de la gourmandise</h2>
+<p>Découvrez nos amuses-bouches et gourmandises préparés pour vos moments de plaisir, vos fêtes et vos cérémonies.</p>
+<a href="#boutique"><button class="btn gold">Découvrir nos produits</button></a>
+</div>
+
+<section id="boutique">
+<h2 class="section-title">Notre boutique</h2>
+<p class="intro">Choisissez vos produits et ajoutez-les à votre panier.</p>
+<div class="products" id="products"></div>
+</section>
+
+<section id="commande">
+<h2 class="section-title">Mon panier</h2>
+<div class="panel">
+<div id="cart"><p>Votre panier est vide.</p></div>
+<p class="total">Total produits : <span id="total">0</span> F CFA</p>
+</div>
+
+<h2 class="section-title">Finaliser ma commande</h2>
+<div class="panel">
+<form id="orderForm">
+<label>Nom et prénom *</label>
+<input id="customer" required placeholder="Votre nom complet">
+
+<label>Numéro de téléphone *</label>
+<input id="phone" required type="tel" placeholder="Votre numéro">
+
+<label>Mode de réception *</label>
+<select id="delivery" required>
+<option value="">Choisir</option>
+<option>Livraison à Abidjan (à partir de 2 000 F CFA)</option>
+<option>Expédition hors Abidjan (tarif à confirmer)</option>
+<option>Retrait (gratuit)</option>
+</select>
+
+<label>Commune et adresse de livraison</label>
+<input id="address" placeholder="Commune, quartier, adresse">
+
+<label>Précisions ou remarques</label>
+<textarea id="notes" rows="3" placeholder="Quantités, date souhaitée, indications..."></textarea>
+
+<label>Choisir le contact WhatsApp *</label>
+<select id="contact" required>
+<option value="">Choisir un numéro</option>
+<option value="2250500200230">05 00 20 02 30</option>
+<option value="2250574757802">05 74 75 78 02</option>
+</select>
+
+<p><small>Les frais de livraison et le montant définitif seront confirmés avec vous avant paiement. Aucun paiement en ligne n'est demandé sur ce site.</small></p>
+<button class="btn" type="submit">Envoyer ma commande sur WhatsApp</button>
+</form>
+</div>
+</section>
+
+<section>
+<h2 class="section-title">Informations utiles</h2>
+<div class="panel">
+<p><b>Livraison à Abidjan :</b> à partir de 2 000 F CFA selon la commune et l'adresse.</p>
+<p><b>Hors Abidjan :</b> expédition et frais à confirmer selon la destination.</p>
+<p><b>Retrait :</b> gratuit.</p>
+<p><b>Paiement :</b> après confirmation de votre commande et des frais applicables.</p>
+</div>
+</section>
+
+<footer>
+<b>LA MAB – Par Mémé Béa</b><br>
+Maison des Amuses-Bouches<br>
+Le plaisir de partager, la gourmandise de savourer.
+</footer>
+
+<script>
+const products=[
+{name:"Toffi – Gingembre",price:7000,detail:"Lot de 100 pièces",emoji:"🍬"},
+{name:"Toffi – Menthe",price:7000,detail:"Lot de 100 pièces",emoji:"🍬"},
+{name:"Toffi – Cannelle",price:7000,detail:"Lot de 100 pièces",emoji:"🍬"},
+{name:"Toffi – Caramel",price:7000,detail:"Lot de 100 pièces",emoji:"🍬"},
+{name:"Arachides salées",price:10000,detail:"Pack de 6 × 1 kg",emoji:"🥜"},
+{name:"Arachides salées",price:10000,detail:"Pack de 12 × 500 g",emoji:"🥜"},
+{name:"Arachides salées",price:10000,detail:"Pack de 24 × 350 g",emoji:"🥜"},
+{name:"Cacaoette – Arachides caramélisées",price:10000,detail:"Pack de 6 × 1 kg",emoji:"🥜"},
+{name:"Cacaoette – Arachides caramélisées",price:10000,detail:"Pack de 12 × 500 g",emoji:"🥜"},
+{name:"Cacaoette – Arachides caramélisées",price:10000,detail:"Pack de 24 × 350 g",emoji:"🥜"},
+{name:"Coco râpé grillé",price:10000,detail:"Pack de 6 × 1 kg",emoji:"🥥"},
+{name:"Coco râpé grillé",price:10000,detail:"Pack de 10 × 500 g",emoji:"🥥"},
+{name:"Croquettes – Format 1",price:3500,detail:"Prix indiqué : 3 500 F CFA",emoji:"🍪"},
+{name:"Croquettes – Format 2",price:2000,detail:"Prix indiqué : 2 000 F CFA",emoji:"🍪"}
+];
+let cart=[];
+const money=n=>n.toLocaleString("fr-FR");
+function renderProducts(){
+document.getElementById("products").innerHTML=products.map((p,i)=>`
+<div class="product">
+<div class="pic">${p.emoji}</div>
+<h3>${p.name}</h3>
+<p>${p.detail}</p>
+<div class="price">${money(p.price)} F CFA</div>
+<button class="btn" onclick="add(${i})">Ajouter au panier</button>
+</div>`).join("");
+}
+function add(i){
+let found=cart.find(x=>x.i===i);
+if(found)found.q++;
+else cart.push({i,q:1});
+renderCart();
+}
+function change(i,d){
+let item=cart.find(x=>x.i===i);
+if(!item)return;
+item.q+=d;
+if(item.q<=0)cart=cart.filter(x=>x.i!==i);
+renderCart();
+}
+function renderCart(){
+let area=document.getElementById("cart");
+if(!cart.length){area.innerHTML="<p>Votre panier est vide.</p>";}
+else{
+area.innerHTML=cart.map(x=>{
+let p=products[x.i];
+return `<div class="cartline"><div><b>${p.name}</b><br><small>${p.detail} – ${money(p.price)} F</small></div><div class="qty"><button onclick="change(${x.i},-1)">−</button> ${x.q} <button onclick="change(${x.i},1)">+</button></div><b>${money(p.price*x.q)} F</b></div>`;
+}).join("");
+}
+document.getElementById("total").textContent=money(cart.reduce((s,x)=>s+products[x.i].price*x.q,0));
+}
+document.getElementById("orderForm").addEventListener("submit",function(e){
+e.preventDefault();
+if(!cart.length){alert("Ajoutez au moins un produit au panier.");return;}
+let name=document.getElementById("customer").value;
+let phone=document.getElementById("phone").value;
+let delivery=document.getElementById("delivery").value;
+let address=document.getElementById("address").value;
+let notes=document.getElementById("notes").value;
+let contact=document.getElementById("contact").value;
+let total=cart.reduce((s,x)=>s+products[x.i].price*x.q,0);
+let lines=cart.map(x=>`${products[x.i].name} (${products[x.i].detail}) x ${x.q} = ${money(products[x.i].price*x.q)} F CFA`).join("\n");
+let message=`Bonjour LA MAB – Par Mémé Béa,\nJe souhaite passer cette commande :\n\n${lines}\n\nTotal produits : ${money(total)} F CFA\n\nClient : ${name}\nTéléphone : ${phone}\nRéception : ${delivery}\nAdresse : ${address||"À préciser"}\nRemarques : ${notes||"Aucune"}\n\nMerci de me confirmer les frais éventuels et le montant final avant paiement.`;
+window.open("https://wa.me/"+contact+"?text="+encodeURIComponent(message),"_blank");
+});
+renderProducts();
+renderCart();
+</script>
+</body>
+</html>
