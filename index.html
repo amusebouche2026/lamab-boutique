@@ -160,13 +160,6 @@ footer a{color:var(--or)}
       </div>
       <div class="champ" id="bloc-adresse" style="display:none"><label for="adresse">Commune / ville et adresse *</label><input id="adresse" placeholder="Ex : Cocody, Riviera 2, près de la pharmacie…"></div>
       <div class="champ"><label for="remarque">Précisions ou remarques</label><textarea id="remarque" rows="3" placeholder="Date souhaitée, événement, emballage cadeau…"></textarea></div>
-      <div class="champ">
-        <label for="contact">Envoyer la commande au *</label>
-        <select id="contact">
-          <option value="2250500200230">05 00 20 02 30</option>
-          <option value="2250574757802">05 74 75 78 02</option>
-        </select>
-      </div>
       <p class="note" style="margin-bottom:14px">Les frais de livraison et le montant définitif vous seront confirmés avant paiement. Aucun paiement n'est demandé sur ce site.</p>
       <button type="submit" class="envoyer">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>
@@ -191,10 +184,10 @@ footer a{color:var(--or)}
   <b>LA MAB – Par Mémé Béa</b><br>
   Maison des Amuses-Bouches<br>
   Le plaisir de partager, la gourmandise de savourer.<br><br>
-  📞 <a href="https://wa.me/2250500200230">05 00 20 02 30</a> · <a href="https://wa.me/2250574757802">05 74 75 78 02</a>
+  📞 WhatsApp : <a href="https://wa.me/2250574757802">05 74 75 78 02</a>
 </footer>
 
-<a class="flottant" href="https://wa.me/2250500200230" aria-label="Nous écrire sur WhatsApp">
+<a class="flottant" href="https://wa.me/2250574757802" aria-label="Nous écrire sur WhatsApp">
   <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"/></svg>
 </a>
 <div class="toast" id="toast"></div>
@@ -237,6 +230,9 @@ const PRODUITS = [
     formats:[ {nom:"Mariage", prix:0}, {nom:"Baptême", prix:0}, {nom:"Anniversaire", prix:0}, {nom:"Noël", prix:0}, {nom:"Pack sur mesure", prix:0} ] }
 ];
 /* ================= FIN DE LA ZONE À MODIFIER ================= */
+
+/* ✏️ Numéro WhatsApp qui reçoit les commandes (225 + numéro, sans espace) */
+const WHATSAPP = "2250574757802";
 
 const fcfa = n => n.toLocaleString("fr-FR").replace(/\u202f|\u00a0/g," ") + " F CFA";
 let panier = [];
@@ -360,7 +356,7 @@ document.getElementById("formulaire").addEventListener("submit", e => {
   if(v("remarque")) msg += `📝 Remarques : ${v("remarque")}\n`;
   msg += "\nMerci de me confirmer le montant final et les frais de livraison.";
 
-  window.open("https://wa.me/" + v("contact") + "?text=" + encodeURIComponent(msg), "_blank");
+  window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg), "_blank");
 });
 
 afficherProduits();
